@@ -15,8 +15,14 @@
 .slides > article table.highlighttable td {
     padding: 0;
 }
-.slides > article pre {
-    margin: 0;
+.slides > article .highlight pre,
+.slides > article .highlighttable pre,
+.slides > article .highlighttable .highlight {
+    margin: 0 !important;
+}
+.slides > article .highlight,
+.slides > article .highlighttable {
+    margin: 0.5em 0;
 }
 .slides > article td.linenos pre {
     padding: 5px;
