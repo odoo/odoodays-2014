@@ -1,7 +1,8 @@
 Odoo Days 2014, R&D presentations
 =================================
 
-* install hieroglyph >= 0.6.5
+* install hieroglyph >= 0.6.5 (http://hieroglyph.io not ``ttf-ancient-fonts``,
+  you may need to use ``pip``)
 * create a directory named after your presentation
 * add an index.rst file to it
 * ``make dir=$directory slides``

@@ -129,7 +129,7 @@ html_theme = 'default'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-if 'ABSDIR' in os.environ:
+if 'ABSDIR' in os.environ and os.path.exists(os.environ['ABSDIR'] + '/static'):
     html_static_path.append(os.environ['ABSDIR'] + '/_static')
 
 # Add any extra paths that contain custom files (such as robots.txt or
