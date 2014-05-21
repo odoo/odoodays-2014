@@ -25,6 +25,19 @@ Slide table
 can be opened by pressing :kbd:`t` to get an overview. Pressing :kbd:`t` again
 will switch back to normal presentation mode.
 
+Fullscreen
+----------
+
+is activated by pressing :kbd:`f` if your browser supports it (recent Firefox,
+Chrome or Safari should). Depending on the browser, pressing :kbd:`f` again
+may or may not exit fullscreen, :kbd:`ESC` should always work (but does it?)
+
+.. warning::
+
+   Presenter's mode must be opened *before* fullscreen, for security reasons
+   it's not possible to open popups at all once in fullscreen mode (not even
+   with a confirmation dialog)
+
 A primary title in the middle
 =============================
 

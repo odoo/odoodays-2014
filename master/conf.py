@@ -231,5 +231,5 @@ slide_theme = 'single-level'
 
 slide_theme_options = {
     'custom_css': 'odoo.css',
-#'custom_js': 'odoo.js',
+    'custom_js': 'odoo.js',
 }
