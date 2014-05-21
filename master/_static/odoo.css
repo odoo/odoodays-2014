@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Lato;
+    src: url(Lato-Reg.ttf);
+}
+@font-face {
+    font-family: FontAwesome;
+    src: url(fontawesome-webfont.ttf);
+}
+
+/* basic article setup */
+.slides > article {
+    font-family: Lato;
+}
+/* code display */
+.slides > article table.highlighttable td {
+    padding: 0;
+}
+.slides > article pre {
+    margin: 0;
+}
+.slides > article td.linenos pre {
+    padding: 5px;
+}
+
+/* logo in slides top-left */
+.slides > article:before {
+    content: "";
+    background: url('logo.png') top left no-repeat;
+    background-size: cover;
+    width: 4em;
+    height: 1.3em;
+    position: absolute;
+    left: 1em;
+}
+/* white logo on purple slides */
+.slides > article.level-1:before {
+    background-image: url('logo-white.png');
+}
+
+/* LEVEL-1 */
+.slides > article.level-1:first-of-type,
+.slides > article.level-1:last-of-type {
+    line-height: normal;
+
+    background: linear-gradient(to bottom, #a24689, #a24689 60%, white 60%, white);
+}
+.slides > article.level-1 {
+    background-color: #a24689;
+}
+
+.slides > article.level-1 h1 {
+    font-size: 2.5em;
+
+    color: white;
+    position: absolute;
+    top: calc(60% - 1.2em);
+    left: 0;
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+    text-align: center;
+}
+.slides > article.level-1 p {
+    color: white;
+    font-size: 1.5em;
+
+    position: absolute;
+    top: 60%;
+    left: 0;
+    padding: 0.2em 0;
+    margin: 0;
+
+    width: 100%;
+    text-align: center;
+}
+.slides > article.level-1:first-of-type p,
+.slides > article.level-1:last-of-type p {
+    color: inherit;
+}
+
+/* REGULAR */
+.slides > article h2 {
+    width: 75%;
+    color: #8f8f8f;
+    border-bottom: 1px solid #a24689;
+    margin-right: -60px;
+    margin-left: 28%;
+}
+
+/* FULLSCREEN */
+.slides > article.fullscreen * {
+    color: #444;
+}
+.slides > article.fullscreen:before {
+    background-image: url('logo-white.png');
+}
+.slides > article.fullscreen h2 {
+    background: rgba(255, 255, 255, 0.7);
+    padding-bottom: 0.1em;
+    border-radius: 5px 0 0 5px;
+    border: none;
+}
+.slides > article.fullscreen p {
+    background: rgba(255, 255, 255, 0.7);
+
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.slides > article.slide p.caption {
+    background: rgba(255, 255, 255, 0.7);
+
+    padding: 0 0.2em;
+    border-radius: 0 5px 0 0;
+}
