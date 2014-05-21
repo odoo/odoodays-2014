@@ -24,6 +24,9 @@
 .slides > article .highlighttable {
     margin: 0.5em 0;
 }
+.slides > article td.linenos {
+    width: 1px;
+}
 .slides > article td.linenos pre {
     padding: 5px;
 }

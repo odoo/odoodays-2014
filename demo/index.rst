@@ -79,9 +79,16 @@ Inline code can be a bear, so `including a separate file
    :linenos:
 
 although the language is not inferred, if it's not Python it has to be
-explicitly specified. And the content-height warning still applies, although
-``literalinclude`` lets you slice out bits of files (line numbers are not the
-original file if sliced)
+explicitly specified. And the content-height warning still applies.
+
+line numbers also work on non-included blocks:
+
+.. code-block:: javascript
+   :linenos:
+
+   function bar() {
+       console.log(72);
+   }
 
 Multiple outputs
 ----------------
