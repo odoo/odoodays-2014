@@ -3,8 +3,12 @@ Odoo Days 2014, R&D presentations
 
 In case you do not wanting to use Powerpoint (and its templates)
 
+* install sphinx >= 1.2 (you can check with ``sphinx-build --version``, you
+  may need to use ``easy_install`` or ``pip``
+  (e.g. ``pip install 'sphinx>=1.2'``) if your distribution only provides an
+  old version of Sphinx.
 * install hieroglyph >= 0.6.5 (http://hieroglyph.io not ``ttf-ancient-fonts``,
-  you may need to use ``pip`` or ``easy_install``)
+  you will probably have to use ``easy_install`` or ``pip``)
 * look at `demo/` for instructions on how things work (``make dir=demo slides 
   html`` from the root directory to build, then look at
   ``demo/_build/slides/index.html`` and ``demo/_build/html/index.html``)
