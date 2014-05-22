@@ -175,6 +175,13 @@ you can put them in, I recommend odoo-colored ponies
 And the theme doesn't handle it very well by default, you have to use a
 special :rst:dir:`slide` directive with a few options set
 
+Quotes
+------
+
+  Just use a reStructuredText quote
+
+  -- they can be attributed
+
 A primary title at the end
 ==========================
 

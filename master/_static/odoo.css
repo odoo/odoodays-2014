@@ -28,7 +28,8 @@
 }
 
 /* basic article setup */
-.slides > article {
+.slides > article h1,
+.slides > article h2 {
     font-family: Lato;
 }
 /* code display */
@@ -146,4 +147,51 @@
 
     padding: 0 0.2em;
     border-radius: 0 5px 0 0;
+}
+
+/* html5slides handles quotes but uses <q>, Sphinx handles quotes but uses
+  <blockquote> (and a slightly different structure). This is a
+  tweaked-for-sphinx version of html5slides's stuff */
+blockquote {
+    font-size: 2em;
+    line-height: 72px;
+
+    margin-left: 20px;
+
+    margin-top: 100px;
+    margin-right: 150px;
+}
+blockquote div {
+    position: relative;
+}
+blockquote div::before {
+    content: '“';
+    display: block;
+    position: absolute;
+
+    width: 2em;
+
+    font-size: 2em;
+    color: rgb(192, 192, 192);
+
+}
+blockquote div::after {
+    content: '”';
+    display: block;
+    position: absolute;
+
+    font-size: 2em;
+    color: rgb(192, 192, 192);
+}
+blockquote div p {
+    padding-left: 1em;
+}
+blockquote p.attribution {
+    text-align: right;
+    font-size: 0.665em;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    opacity: 0.7;
 }
