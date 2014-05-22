@@ -60,6 +60,7 @@
     height: 1.3em;
     position: absolute;
     left: 1em;
+    top: 1.4em;
 }
 /* white logo on purple slides */
 .slides > article.level-1:before {
@@ -78,8 +79,6 @@
 }
 
 .slides > article.level-1 h1 {
-    font-size: 2.4em;
-
     color: white;
     position: absolute;
     top: calc(60% - 1.2em);
@@ -89,10 +88,12 @@
 
     width: 100%;
     text-align: center;
+
+    letter-spacing: normal;
 }
 .slides > article.level-1 p {
     color: white;
-    font-size: 1.5em;
+    font-size: 1.3em;
 
     position: absolute;
     top: 60%;
@@ -116,6 +117,8 @@
     margin-right: -60px;
     margin-left: 28%;
     letter-spacing: normal;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
 }
 
 /* FULLSCREEN */
