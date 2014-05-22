@@ -159,7 +159,7 @@ blockquote {
     margin-left: 20px;
 
     margin-top: 100px;
-    margin-right: 150px;
+    margin-right: 50px;
 }
 blockquote div {
     position: relative;
@@ -179,12 +179,13 @@ blockquote div::after {
     content: '”';
     display: block;
     position: absolute;
+    right: 0;
 
     font-size: 2em;
     color: rgb(192, 192, 192);
 }
 blockquote div p {
-    padding-left: 1em;
+    padding: 0 1em;
 }
 blockquote p.attribution {
     text-align: right;
