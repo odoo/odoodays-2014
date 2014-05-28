@@ -56,7 +56,7 @@
 .slides > article:before {
     content: "";
     background: url('logo.png') top left no-repeat;
-    background-size: cover;
+    background-size: contain;
     width: 4em;
     height: 1.3em;
     position: absolute;
