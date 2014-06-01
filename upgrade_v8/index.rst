@@ -262,6 +262,48 @@ Field dependencies (``@depends``) are used for
     * recomputation.
 
 
+Fields with inverse
+-------------------
+
+On may also provide **inverse** and **search** methods::
+
+    class stuff(Model):
+        name = fields.Char()
+        loud = fields.Char(
+            store=False, compute='_compute_loud',
+            inverse='_inverse_loud', search='_search_loud',
+        )
+
+        @api.one
+        @api.depends('name')
+        def _compute_loud(self):
+            self.loud = (self.name or '').upper()
+
+        ...
+
+.. nextslide::
+
+.. code::
+
+    class stuff(Model):
+        name = fields.Char()
+        loud = fields.Char(
+            store=False, compute='_compute_loud',
+            inverse='_inverse_loud', search='_search_loud',
+        )
+
+        ...
+
+        @api.one
+        def _inverse_loud(self):
+            self.name = (self.loud or '').lower()
+
+        def _search_loud(self, operator, value):
+            if value is not False:
+                value = value.lower()
+            return [('name', operator, value)]
+
+
 Onchange methods
 ----------------
 
