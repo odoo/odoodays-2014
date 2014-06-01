@@ -3,48 +3,36 @@ Website Training
 
 Odoo Days 2014
 
-Advanced routing features
--------------------------
+WiFi
+----
 
-- type
-- auth
-- method
-- converters
+public wifi
 
-  + ``<param>``, ``<converter:param>``, ``<converter(0, arg1=foo, arg2="foo,
-    bar"):param>``
-  + ``string(minlength=1, maxlength=None, length=None)``, ``path``,
-    ``any(*items)``, ``int([fixed_digits][, min][, max])``, ``float([min][,
-    max])``, ``uuid`` (Werkzeug 0.10)
-- multiple patterns
-- multilang & translations
+name
+  opendays
+pass
+  odoo2014
 
-Controller overriding?
-----------------------
+Virtual Machine
+---------------
 
-- ``@route()``
-- accumulation of routing info (partial override)
-- name-based (mostly)
-- single-level (?)
-- lazy rendering (by default) -> overrides can extend the (HTML) template and
-  inject new values in the rendering context before the rendering actually
-  happens
+* Install VirtualBox
+* Get :file:`Odoo.vdi` and :file:`Odoo.vbox` from the key
+* Launch VirtualBox
+* :menuselection:`Machine --> Add`
+* Select :file:`Odoo.vbox`
+* :guilabel:`Start`
 
-Asset bundles
--------------
+.. nextslide::
 
-Javascript website APIs
------------------------
+* :menuselection:`Applications --> System Tools --> UXTerm`
+* :command:`cd odoo`
+* :command:`git remote add -t master-apiculture dev http://github.com/odoo-dev/odoo`
+* :command:`git checkout -b training 3fa6c29`
+* :command:`sudo apt-get install python-decorator python-ldap` 
 
-Snippets
---------
+.. note:: password is ``odoo``
 
-Dependencies
-------------
-
-Uses the "new API" (``apiculture``) branch. Not much of the new API will be
-used, if you want that see the *V8 API* training session.
- 
 Sections
 --------
 
@@ -54,3 +42,4 @@ Sections
    training
    templating
    routing
+   overriding

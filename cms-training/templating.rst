@@ -3,6 +3,11 @@ Website Templates
 
 Odoo Days 2014
 
+.. note::
+
+   No tasks for that one, have students play around and test things without
+   formal instructions: there's nothing *hard* to imagine/use.
+
 Odoo Object
 -----------
 
@@ -89,6 +94,8 @@ Blocks
    * if value is dict, merged into evaluation context for body
 
 .. nextslide::
+
+.. code-block:: xml
 
    <t t-call="some.template">
        body
