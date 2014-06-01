@@ -279,11 +279,11 @@ The record ``self`` is a virtual record:
 
 .. nextslide::
 
-A field element on a form is automatically decorated with ``on_change="1"``:
+A field element on a form is **automatically** decorated with ``on_change="1"``:
     * if it has an onchange method
     * if it is a dependency of a computed field
 
-This mechanism may be avoided by explicitly decorating a field element with
+This mechanism may be prevented by explicitly decorating a field element with
 ``on_change="0"``.
 
 
