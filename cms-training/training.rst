@@ -215,10 +215,8 @@ QWeb (Python flavored)
 .. nextslide::
 
 * ``t`` support element
-* ``t-esc="$expr"`` / ``t-escf="$format"``
-* ``t-raw="$expr"`` / ``t-rawf="$format"``
-
-  format: ``#{expr}`` or ``{{expr}}``
+* ``t-esc="$expr"``
+* ``t-raw="$expr"``
 
 .. code-block:: xml
 
@@ -239,18 +237,15 @@ QWeb (Python flavored)
 * ``t-foreach="$expr" t-as="$name"``
 * ``t-att-*="$expr"`` / ``t-attf-*="$format"``
 
-  - ``url_for`` helper for href (multilang)
-  - ``keep-query(*keep, **additionals)``
-
 .. code-block:: xml
 
    <ul>
-       <t t-foreach="3" t-as="number">
+       <t t-foreach="range" t-as="number">
            <li><t t-esc="number"/></li>
        </t>
    </ul>
    <ul>
-       <li t-foreach="3" t-as="number">
+       <li t-foreach="range" t-as="number">
            <t t-esc="number"/>
        </li>
    </ul>
@@ -262,11 +257,6 @@ QWeb (Python flavored)
    .. topic:: Tasks
 
       1. move iteration/link generation of index to templates
-
-.. nextslide::
-
-* ``t-set``
-* ``t-if``
 
 Website support
 ---------------

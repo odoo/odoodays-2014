@@ -3,33 +3,6 @@ Website Training
 
 Odoo Days 2014
 
-Core
-----
-
-Working knowledge of the new Website module(s) and features:
-
-* Responding to HTTP requests
-* QWeb (py) templates
-* Displaying business data in your website
-* Using and customizing existing modules
-
-Advanced field formatting
--------------------------
-
-- default (``html-escape: True``)
-- float
-- date (``format: lang.date_format``)
-- datetime (``format: lang.date_format + ' ' + lang.time_format``)
-- text
-- selection
-- many2one
-- html
-- image
-- monetary (``display_currency``)
-- duration (float, ``unit``)
-- relative (datetime, to now)
-- contact (res.partner?, ``fields``)
-
 Advanced routing features
 -------------------------
 
@@ -79,3 +52,5 @@ Sections
    :maxdepth: 1
 
    training
+   templating
+   routing
