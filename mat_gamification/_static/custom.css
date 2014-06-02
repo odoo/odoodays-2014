@@ -1,6 +1,6 @@
 @import url("odoo.css");
 
-.slides > article:after {
+.slides > article:not(.level-1):after {
     content: "Martin Trigaux (mat@odoo.com)";
     position: absolute;
     right: 1em;
