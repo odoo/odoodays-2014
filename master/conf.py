@@ -132,6 +132,7 @@ html_static_path = ['_static']
 if 'ABSDIR' in os.environ and os.path.exists(os.environ['ABSDIR'] + '/static'):
     html_static_path.append(os.environ['ABSDIR'] + '/_static')
 
+# src and dest dir are the two last arguments
 custom_path = os.path.join('..', os.path.join(sys.argv[-2], '_static'))
 if os.path.exists(custom_path) and os.path.isfile(os.path.join(custom_path, 'custom.css')):
 	custom_css = True

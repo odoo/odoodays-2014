@@ -1,5 +1,5 @@
-Drive engagement by integrating gamification features into your own modules
-===========================================================================
+Use Gamification Module
+=======================
 
 Martin Trigaux, Developer
 
@@ -15,14 +15,23 @@ Gamification
 Challenge
 ---------
 
-* Who is participating ?
-* What are the goals ?
-* What is the reward ?
+* Who is participating?
+* What are the goals?
+* What is the reward?
 
-Goals
------
+Demo 1: sales
+-------------
 
-How to evaluate your goal ?
+.. image:: images/lead_aquisition.png   
+   :align: center
+
+
+Demo 2: forum
+-------------
+
+.. image:: images/forum_users.png   
+   :align: center
+
 
 Thanks
 ======
