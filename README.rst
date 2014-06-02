@@ -39,8 +39,9 @@ Is there a timer in the presenter's mode?
     No, sorry. There will be somebody timing so that shouldn't be too
     much of an issue
 Can I add my own CSS?
-    Yep, create a folder _static, create a file named custom.css to put
-    comic-sans everywhere
+    Yep, create a folder called `_static`, create a file named custom.css in it
+    to put comic-sans everywhere. It will replace odoo.css so starting the file
+    with `@import url("odoo.css");` could be a good idea.
 When I google image for "purple pony" I get G3 stuff!
     Google for "twilight sparkle"
 Any other purple pony?
