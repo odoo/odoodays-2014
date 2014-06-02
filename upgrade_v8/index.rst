@@ -55,7 +55,7 @@ It implements sequence operations::
         print partner.name
 
     if len(partners) >= 5:
-        fifth = partner[4]
+        fifth = partners[4]
 
     extremes = partners[:10] + partners[-10:]
 
