@@ -38,6 +38,9 @@ Can I remove the bit of previous and next slide?
 Is there a timer in the presenter's mode?
     No, sorry. There will be somebody timing so that shouldn't be too
     much of an issue
+Can I add my own CSS?
+    Yep, create a folder _static, create a file named custom.css to put
+    comic-sans everywhere
 When I google image for "purple pony" I get G3 stuff!
     Google for "twilight sparkle"
 Any other purple pony?
