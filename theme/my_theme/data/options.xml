@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+  <template id="gourman_website_options_pattern" inherit_id="website.snippet_options">
+   <xpath expr="//div[@data-snippet-option-id='background']//ul[@class='dropdown-menu'][1]" position="inside">
+    <li class="dropdown-submenu">
+     <a tabindex="-1" href="#">Zen Backgrounds</a>
+     <ul class="dropdown-menu">
+	 
+<!-- Bg Abstract -->
+      
+	  <li data-value="abstract" class="dropdown-submenu">
+       <a>Abstract</a>
+       <ul class="dropdown-menu">
+        <li data-value="bg_abstract_silver">
+         <a>Silver</a>
+        </li>
+		<li data-value="bg_abstract_cobalt">
+         <a>Cobalt</a>
+        </li>
+        <li data-value="bg_abstract_gold">
+         <a>Gold</a>
+        </li>
+       </ul>
+      </li>
+	  
+<!-- Bg Business -->
+	  
+      <li data-value="business" class="dropdown-submenu">
+       <a>Business</a>
+       <ul class="dropdown-menu">
+        <li data-value="bg_business_silver">
+         <a>Silver</a>
+        </li>
+        <li data-value="bg_business_cobalt">
+         <a>Cobalt</a>
+        </li>
+        <li data-value="bg_business_gold">
+         <a>Gold</a>
+        </li>
+       </ul>
+      </li>
+
+<!-- Bg Tech -->
+	  
+	  <li data-value="tech" class="dropdown-submenu">
+       <a>Tech</a>
+       <ul class="dropdown-menu">
+        <li data-value="bg_tech_silver">
+         <a>Silver</a>
+        </li>
+        <li data-value="bg_tech_cobalt">
+         <a>Cobalt</a>
+        </li>
+        <li data-value="bg_tech_gold">
+         <a>Gold</a>
+        </li>
+       </ul>
+      </li>
+	  
+     </ul>
+    </li>
+   </xpath>
+  </template>
+ </data>
+</openerp>

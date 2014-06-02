@@ -1,0 +1,18 @@
+  [...]
+   </xpath>
+   <xpath expr="//div[@class='tab-content']" position="inside">
+    <div id="snippet_zen" class="tab-pane fade">
+     <!-- Title -->
+     <div>
+        [...]
+     </div>
+     <section class="oe_snippet_body mt_simple_snippet">
+      <div class="container">
+        <hr />
+        <h1 class="text-center mb32 mt32">This is a simple snippet</h1>
+        <hr />
+      </div>
+     </section>
+    </div>
+   </xpath>
+  [...]

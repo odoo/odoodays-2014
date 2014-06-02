@@ -1,0 +1,15 @@
+  [...]
+   </xpath>
+   <xpath expr="//div[@class='tab-content']" position="inside">
+    <div id="snippet_my_snippet" class="tab-pane fade">
+     <!-- Title -->
+     <div>
+      <div class="oe_snippet_thumbnail">
+        <img class="oe_snippet_thumbnail_img"
+             src="/my_theme/static/src/img/snippet/snippet_thumbs.png" />
+       <span class="oe_snippet_thumbnail_title">My Snippet</span>
+      </div>
+     </div>
+    </div>
+   </xpath>
+  [...]

@@ -1,0 +1,111 @@
+Create Themes for Websites
+==========================
+
+By Fabien Pinckaers - Founder & CEO, Odoo
+
+Topics
+------
+#. Introduction
+	*  Classical workflow
+	*  Odoo's CMS workflow  
+#. Tutorial
+	* Starting with a single page
+	* Build it with snippets
+	* Add Options
+	* Custom CSS
+#. Scaffolding
+	* Start a project
+	* Deploy a theme
+
+
+
+Introduction
+============
+
+Classical workflow
+------------------
+
+.. image:: images/illus1.png   
+   :width: 70%
+   
+
+Working with Odoo CMS
+---------------------
+
+.. image:: images/illus2.png   
+   :width: 70%
+
+Tutorial
+========
+
+Structure of a Theme
+--------------------
+
+| 
+| 
+| 
+| 
+**A Theme is a Module**  
+|(without Python Logic)
+
+Structure of a Theme
+--------------------
+
+* My Theme
+	* static
+  		* src
+			* js, css, font, xml, img
+	* data
+		* my_theme.xml 
+		* snippets.xml
+		* options.xml
+		* [ ... ]
+	* views
+		* pages.xml (static pages)
+
+
+
+Starting with a html page
+-------------------------
+
+Let's start with the homepage.
+	
+.. literalinclude:: code/1.xml
+   :language: xml
+   :linenos:
+
+Starting with a html page
+-------------------------
+
+Add the Odoo context:
+
+* Bootstrap
+* Edition Bar
+* Structure
+	
+.. literalinclude:: code/2.xml
+   :language: xml
+   :linenos:
+
+
+Build it with snippets
+----------------------
+
+Add Options
+-----------
+
+Custom CSS
+-----------
+
+Scaffolding
+===========
+
+Start a project
+---------------
+
+Deploy a theme
+--------------
+
+Thanks You
+==========
+

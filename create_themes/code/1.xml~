@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <template id="website.homepage">
+    <h1>Coucou</h1>
+  </template>
+</openerp>

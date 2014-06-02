@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+  <template id="snippets" inherit_id="website.snippets" name="Zen Theme snippets">
+   <!-- Create section My Theme -->
+   <xpath expr="//ul[@class='nav navbar-nav nav-tabs']" position="inside">
+    <li>
+     <a href="#snippet_my_snippet" data-toggle="tab">My Snippet</a>
+    </li>
+   </xpath>
+   <!-- My Simple Snippet -->
+   <xpath expr="//div[@class='tab-content']" position="inside">
+    <div id="snippet_my_snippet" class="tab-pane fade">
+     <div>
+      <!-- Thumbnail -->
+      <div class="oe_snippet_thumbnail">
+       <img class="oe_snippet_thumbnail_img" src="/my_theme/static/src/img/snippet/snippet_thumbs.png" />
+       <span class="oe_snippet_thumbnail_title">My Snippet</span>
+      </div>
+      <!-- HTML Snippet -->
+      <section class="oe_snippet_body mt_simple_snippet">
+       <div class="container">
+        <hr />
+        <h1 class="text-center mb32 mt32">This is a simple snippet</h1>
+        <hr />
+       </div>
+      </section>
+     </div>
+    </div>
+   </xpath>
+  </template>
+ </data>
+</openerp>
