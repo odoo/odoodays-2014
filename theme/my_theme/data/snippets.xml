@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
  <data>
-  <template id="snippets" inherit_id="website.snippets" name="Zen Theme snippets">
+  <template id="my_theme_snippets" inherit_id="website.snippets" name="Zen Theme snippets">
    <!-- Create section My Theme -->
    <xpath expr="//ul[@class='nav navbar-nav nav-tabs']" position="inside">
     <li>

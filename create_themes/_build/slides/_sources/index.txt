@@ -5,19 +5,16 @@ By Fabien Pinckaers - Founder & CEO, Odoo
 
 Topics
 ------
-#. Introduction
-	*  Classical workflow
-	*  Odoo's CMS workflow  
-#. Tutorial
+
+1. Introduction
+	* Classical workflow
+	* Odoo's CMS workflow
+2. Tutorial
 	* Starting with a single page
-	* Build with snippets
-	* Add Options
-	* Custom CSS
-#. Scaffolding
-	* Start a project
-	* Deploy a theme
-
-
+	* Snippets
+	* Options
+	* Custom Css
+3. Example
 
 Introduction
 ============
@@ -65,9 +62,10 @@ Structure of a Theme
 	* views
 		* pages.xml (static pages)
 
+Simple HTML page
+================
 
-
-Starting with a html page
+Starting with a HTML page
 -------------------------
 
 Let's start with the homepage.
@@ -100,6 +98,10 @@ It's possible to create all the page like this way.
 .. literalinclude:: code/3.xml
    :language: xml
    :linenos:
+
+
+Snippets
+========
 
 Build with snippets
 -------------------
@@ -160,13 +162,13 @@ We can customize this simple snippet with SASS/CSS.
 *static/src/css/my_theme.sass*
 
 .. literalinclude:: code/7.xml
-   :language: css
+   :language: sass
    :linenos:
 
 *static/src/css/my_theme-snippet.sass*
 
 .. literalinclude:: code/8.xml
-   :language: css
+   :language: sass
    :linenos:
 
 Customize my Snippet
@@ -177,7 +179,7 @@ To insert this new css we need to extend the theme template and replace the defa
 *data/my_theme.xml*
 
 .. literalinclude:: code/9.xml
-   :language: css
+   :language: xml
    :linenos:
 
 
@@ -186,28 +188,110 @@ Snippet & Javascript
 
 It's possible to add **javascript logic** when a snippet has been dropped or appears in the page.
 
-We have several methods in Odoo website module ( eg. website.snippets.animation.js )
+*static/src/js/snippet.js*
+
+.. literalinclude:: code/10.xml
+   :language: javascript
+   :linenos:
 
 
-
-
-
+Options
+=======
 
 Add Options
 -----------
 
+We can add options for every snippets or blocks.
+
+In our case, we add 2 options ( patterns background) for the snippet created before.
+
+*data/options.xml*
+
+.. literalinclude:: code/11.xml
+   :language: xml
+   :linenos:
+
+Add Options
+-----------
+
+In fact, it adds a class-name to the data-selector.
+
+And now, simply create the css to have the desired result.
+
+*static/src/css/my_theme-options.sass*
+
+.. literalinclude:: code/12.xml
+   :language: sass
+   :linenos:
+
+
 Custom CSS
 -----------
 
-Scaffolding
-===========
+We can override `Bootstrap variables <https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_variables.scss>`_ to create your theme.
+ 
+*static/src/css/my_theme.sass*
 
-Start a project
----------------
+.. literalinclude:: code/13.xml
+   :language: sass
+   :linenos:
 
-Deploy a theme
---------------
 
-Thanks You
-==========
+Summary
+=======
 
+Summary
+-------
+
+* Infinite customizations
+* Easy to understand
+* Template inherits
+* Bootstrap based
+* Only imagination is your limit
+* Robust Odoo back-end behind
+
+
+**... and so much things will come  :)**
+
+Quote
+-----
+
+  Think in terms of f#@_°% Snippets!!
+
+  -- nwi
+
+
+Example
+=======
+
+
+
+.. slide:: 
+   :class: fullscreen
+   :inline-contents: True
+   
+   .. figure:: images/zen.png
+      :class: fill
+
+
+
+.. slide:: 
+   :class: fullscreen
+   :inline-contents: True
+   
+   .. figure:: images/gourmand.png
+      :class: fill
+
+
+.. slide:: 
+   :class: fullscreen
+   :inline-contents: True
+   
+   .. figure:: images/odoo.png
+      :class: fill
+
+Thank you
+=========
+
+And we are hiring a webdesigner. 
+Contact cde@odoo.com for more informations.

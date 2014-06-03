@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
- <data>
-  <template id="my_theme_snippet_option" name="My Snippet Options" inherit_id="website.snippet_options">
+[...]
+  <template id="my_theme_snippet_option" name="My Snippet Options" 
+            inherit_id="website.snippet_options">
   <xpath expr="." position="inside">
-    <div data-snippet-option-id="my_theme_snippet_option" data-selector=".mt_simple_snippet" data-selector-children=".oe_structure">
+    <div data-snippet-option-id="my_theme_snippet_option" 
+         data-selector=".mt_simple_snippet" 
+         data-selector-children=".oe_structure">
     <li class="dropdown-submenu">
             <a tabindex="-1" href="#">Pattern</a>
             <ul class="dropdown-menu">
@@ -13,6 +14,4 @@
         </li>
     </div>
     </xpath>
-  </template>
- </data>
-</openerp>
+[...]
