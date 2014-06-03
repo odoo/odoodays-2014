@@ -1,38 +1,132 @@
 OpenChatter Integration
 =======================
 
-Thibault Delavallée
+Thibault Delavallée, R&D Engineer
+
+Messaging, OpenChatter
+----------------------
+
+.. image:: images/app_mail.png
+   :width: 40%
+   :align: right
+
+.. image:: images/app_crm.png
+   :width: 40%
+   :align: right
+
+.. image:: images/app_project.png
+   :width: 40%
+   :align: right
+
+.. image:: images/app_wms.png
+   :width: 40%
+   :align: right
+
+.. image:: images/app_cms.png
+   :width: 40%
+   :align: right
+
+Transversal app
+
+* Discuss with customers on quotations
+* Feedback on issues
+* Mailing groups
+* Discussions on tasks
+* Subscribe to Newsletters
+
+.. nextslide::
+
+Transversal features
+
+* OpenChatter
+* Comunication history
+* Subscribe, Followers
+* Action counters
+* Mail gateway
+* Aliases
 
 OpenChatter
 -----------
 
-Add OpenChatter in your model::
+OpenChatter in your model::
 
     class MyClass(Model):
         _inherit = 'mail.thread'
 
+.. code-block:: python
 
-OpenChatter Form View
+  _columns = {
+    'message_ids': ... # communication history
+    'message_follower_ids': ... # followers
+    'message_unread': ... # unread messages
+  }
+
+OpenChatter in your view
 
 .. code-block:: xml
 
    <div class="oe_chatter">
-     <field name="message_follower_ids" widget="mail_followers"
-       groups="base.group_user"/>
-     <field name="message_ids" widget="mail_thread"
-       placeholder="Share your thoughts about the idea"/>
+     <field name="message_follower_ids" widget="mail_followers"/>
+     <field name="message_ids" widget="mail_thread"/>
    </div>
+
+And you are done !
+
+.. nextslide::
+
+.. image:: images/chatter_2.png
+   :width: 80%
+   :align: center
+
+
+Subtypes
+--------
+
+Define subtypes in XML
+
+.. code-block:: xml
+
+  <record id="mt_task_assigned" model="mail.message.subtype">
+    <field name="name">Task Assigned</field>
+    <field name="res_model">project.task</field>
+    <field name="default" eval="False"/>
+  </record>
+
+Bind them to the model
+
+.. code-block:: python
+
+  _track = {
+    'user_id': {
+        'project.mt_task_assigned': lambda self, cr, uid, obj, c=None:
+          obj.user_id and obj.user_id.id,
+    }
+  }
+
+.. nextslide::
+
+Subscription customization
+
+.. image:: images/subtypes_1.png
+   :width: 30%
+   :align: center
+
+Automatic logging
+
+.. image:: images/subtypes_2.png
+   :width: 60%
+   :align: center
 
 NeedAction
 ----------
 
-Add NeedAction in your model::
+NeedAction in your model::
 
     class MyClass(Model):
         _inherit = 'ir.needaction_mixin'
 
 
-Action counter based on a standard `message_unread` search filter
+Define a standard `message_unread` search filter
 
 .. code-block:: xml
 
@@ -41,16 +135,55 @@ Action counter based on a standard `message_unread` search filter
            domain="[('message_unread','=',True)]"
            help="Unread messages"/>
 
+.. nextslide::
+
+Action counters
+
+.. image:: images/needaction_1.png
+   :width: 35%
+   :align: center
+
+Kanban
+
+.. image:: images/needaction_2.png
+   :width: 35%
+   :align: center
+
 Email aliases
 -------------
 
 Add alias management in your model::
 
-    class MyClass(Model):
-        _inherits = {'mail.alias': 'alias_id'}
+  class MyClass(Model):
+    _inherits = {'mail.alias': 'alias_id'}
 
-        _columns = {
-            'alias_id': fields.many2one('mail.alias', 'Alias'),
-        }
+    _columns = {
+      'alias_id': fields.many2one('mail.alias', 'Alias'),
+    }
 
-Will create an alias for each new record.
+New record -> new (inactive alias)
+
+Aliases and Mail Gateway
+------------------------
+
+Some bits of alias tweaking
+
+* `alias_contact` -> privacy settings
+* `alias_force_thread_id` -> redirect emails to a document's thread or create a new document
+
+.. image:: images/group_1.png
+   :width: 40%
+   :align: center
+
+.. image:: images/project_1.png
+   :width: 35%
+   :align: left
+
+.. image:: images/sales_team_1.png
+   :width: 45%
+   :align: right
+
+Thanks for your attention
+=========================
+
+Questions ? tde@openerp.com
