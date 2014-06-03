@@ -6,17 +6,47 @@ Thibault Delavallée, R&D Engineer
 Dynamic Widgets
 ---------------
 
+* Efficient and simple way to customize your website
+
+.. image:: images/editor_1.png
+   :width: 70%
+   :align: center
+   :class: mt16
+
+.. image:: images/mailing_list_1.png
+   :width: 50%
+   :align: center
+   :class: mt16
+
+.. image:: images/discussion_group_1.png
+   :width: 50%
+   :align: center
+   :class: mt16
+
+.. nextslide::
+
+* Use the full power of Odoo
+* Integrates with Odoo apps: subscribe to a discussion group, create leads, fill issues, ...
+
+.. image:: images/mailing_list_2.png
+   :width: 60%
+   :align: center
+
+.. nextslide::
+
 .. image:: images/demo1.png   
    :align: right
    :width: 30%
 
-* Efficient and simple way to customize your website
-* Use the full power of Odoo
-* Integrates with Odoo apps: subscribe to a discussion group, create leads, fill issues, ...
-
 .. image:: images/demo2.png   
    :align: right
    :width: 90%
+
+Running example: Contact Snippet
+
+* small contact form
+* create leads from questions
+* drag 'n drop it anywhere usefull
 
 Outline
 -------
@@ -29,6 +59,10 @@ Outline
 
 Body: snippet content
 ---------------------
+
+.. image:: images/contact_body.png
+   :align: right
+   :width: 50%
 
 Body = `HTML`
 
@@ -49,7 +83,7 @@ Body = `HTML`
 Editor
 ------
 
-Snippet declaration: add the snippet in the editor through inheritance
+Snippet addition: extend the editor QWeb template
 
 .. code-block:: xml
 
@@ -77,23 +111,43 @@ A thumbnail, a body
       <span class="oe_snippet_thumbnail_title">Contact Snippet</span>
     </div>
     <section class="oe_snippet_body js_contact">
-      ...
+      <!-- snippet HTML content -->
     </section>
   </div>
 
-.. nextslide::
+Editor: snippet options
+-----------------------
 
-Snippet options: 
+* Placement
+* Customize menu
 
 .. code-block:: xml
 
-  <template id="contact_snippet" name="Contact Snippet" inherit_id="website.snippets">
+  <template id="contact_snippet"
+            name="Contact Snippet"
+            inherit_id="website.snippets">
     <div data-snippet-option-id='contact_snippet'
           data-selector=".js_contact"
-          data-selector-siblings="p, h1, h2, h3, blockquote, div, .well, .panel">
-      <li><a href="#" class="button js_contact_sales_team">Change Sales Team</a></li>
+          data-selector-siblings="p, h1, h2, h3, blockquote,
+                                  div, .well, .panel">
+      <li>
+        <a href="#" class="button js_contact_sales_team">
+          Change Sales Team
+        </a>
+      </li>
     </div>
   </template>
+
+.. nextslide::
+
+.. image:: images/contact_custo_1.png
+   :align: center
+   :width: 40%
+
+.. image:: images/contact_custo_2.png
+   :align: center
+   :width: 70%
+   :class: mt16
 
 Dynamic configuration: Option
 -----------------------------
@@ -139,14 +193,22 @@ Dynamic behavior: Animation
 Dynamic behavior: routing
 -------------------------
 
-Define a new route in the controller
+Define a new route in the controller: create a lead from submitted data
 
 .. code-block:: python
 
   @http.route(['/crm/contact_short'], type='json')
-  def contactus(self, question=None, email=None, section_id=None, **kwargs):
-    lead_values = { ... }
-    return request.registry['crm.lead'].create(cr, uid, lead_values, context)
+  def contactus(self, question=None, email=None,
+                section_id=None, **kwargs):
+    lead_values = {
+      'name': 'Lead from %s (Contact Snippet)' % email,
+      'description': question,
+      'email_from': email,
+      'section_id': section_id,
+      'user_id': False,
+    }
+    return request.registry['crm.lead'].create(cr, uid, lead_values,
+                                               context)
 
 Summary
 -------
@@ -158,7 +220,7 @@ Summary
 * Link: controllers
 
 
-Widgets Rulez
-=============
+Thanks
+======
 
 Any questions ? Feel free to contact chm@openerp.com

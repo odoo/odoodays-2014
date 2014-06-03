@@ -132,6 +132,14 @@ html_static_path = ['_static']
 if 'ABSDIR' in os.environ and os.path.exists(os.environ['ABSDIR'] + '/static'):
     html_static_path.append(os.environ['ABSDIR'] + '/_static')
 
+# src and dest dir are the two last arguments
+custom_path = os.path.join('..', os.path.join(sys.argv[-2], '_static'))
+if os.path.exists(custom_path) and os.path.isfile(os.path.join(custom_path, 'custom.css')):
+    custom_css = True
+    html_static_path.append(custom_path)
+else:
+    custom_css = False
+
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
@@ -230,6 +238,6 @@ latex_documents = [
 slide_theme = 'single-level'
 
 slide_theme_options = {
-    'custom_css': 'odoo.css',
+    'custom_css': custom_css and 'custom.css' or 'odoo.css',
     'custom_js': 'odoo.js',
 }

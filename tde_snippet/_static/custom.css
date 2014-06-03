@@ -1,0 +1,26 @@
+@import url("odoo.css");
+
+.slides > article:not(.level-1):after {
+    content: "Thibault Delavallée (tde@odoo.com)";
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    font-family: 'Lato';
+    font-size: 0.9em;
+}
+
+.slides .mb8 {
+    margin-bottom: 8px;
+}
+
+.slides .mb16 {
+    margin-bottom: 16px;
+}
+
+.slides .mt8 {
+    margin-top: 8px;
+}
+
+.slides .mt16 {
+    margin-top: 16px;
+}
