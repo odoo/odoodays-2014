@@ -161,12 +161,12 @@ Add alias management in your model::
       'alias_id': fields.many2one('mail.alias', 'Alias'),
     }
 
-New record -> new (inactive alias)
+New record -> new alias
 
 Aliases and Mail Gateway
 ------------------------
 
-Some bits of alias tweaking
+Alias configuration
 
 * `alias_contact` -> privacy settings
 * `alias_force_thread_id` -> redirect emails to a document's thread or create a new document
