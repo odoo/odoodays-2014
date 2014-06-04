@@ -7,7 +7,7 @@ ifeq ($(wildcard $(dir)/index.rst),)
 endif
 
 export ABSDIR = $(abspath $(dir))
-SPHINXBUILD = sphinx-build2
+SPHINXBUILD = sphinx-build
 BUILDDIR = $(dir)/_build
 
 PAPEROPT_a4     = -D latex_paper_size=a4
