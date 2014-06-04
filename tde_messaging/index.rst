@@ -45,21 +45,13 @@ Transversal features
 * Mail gateway
 * Aliases
 
-OpenChatter
------------
+OpenChatter / mail.thread
+-------------------------
 
 OpenChatter in your model::
 
     class MyClass(Model):
         _inherit = 'mail.thread'
-
-.. code-block:: python
-
-  _columns = {
-    'message_ids': ... # communication history
-    'message_follower_ids': ... # followers
-    'message_unread': ... # unread messages
-  }
 
 OpenChatter in your view
 
@@ -78,9 +70,59 @@ And you are done !
    :width: 80%
    :align: center
 
+.. nextslide::
+
+What did it do ? new fields, linking messaging models
+
+.. code-block:: python
+
+  _columns = {
+    'message_ids': ... # communication history
+    'message_follower_ids': ... # followers
+    'message_unread': ... # unread messages
+  }
+
+  class MailMessage(Model):
+    ...
+
+  class MailMail(Model):
+    ...
+
+  class MailFollowers(Model):
+    ...
+
+.. nextslide::
+
+What did it do ? new features
+
+.. code-block:: python
+
+  def message_post(...):
+
+  def message_track(...):
+
+  def message_subscribe(...):
+
+  def message_process(...):
 
 Subtypes
 --------
+
+Subscription customization
+
+.. image:: images/subtypes_1.png
+   :width: 30%
+   :align: center
+   :class: mt8
+
+Automatic logging
+
+.. image:: images/subtypes_2.png
+   :width: 60%
+   :align: center
+   :class: mt8
+
+.. nextslide::
 
 Define subtypes in XML
 
@@ -92,9 +134,20 @@ Define subtypes in XML
     <field name="default" eval="False"/>
   </record>
 
+.. image:: images/subtypes_1.png
+   :width: 30%
+   :align: center
+
+.. nextslide::
+
 Bind them to the model
 
 .. code-block:: python
+
+  _columns = {
+    'user_id': fields.many2one('res.users',
+                               track_visibility='onchange'),
+  }
 
   _track = {
     'user_id': {
@@ -102,20 +155,6 @@ Bind them to the model
           obj.user_id and obj.user_id.id,
     }
   }
-
-.. nextslide::
-
-Subscription customization
-
-.. image:: images/subtypes_1.png
-   :width: 30%
-   :align: center
-
-Automatic logging
-
-.. image:: images/subtypes_2.png
-   :width: 60%
-   :align: center
 
 NeedAction
 ----------
@@ -130,7 +169,7 @@ Define a standard `message_unread` search filter
 
 .. code-block:: xml
 
-   <filter string="Unread Messages"
+   <filter string="Unread Messagingges"
            name="message_unread"
            domain="[('message_unread','=',True)]"
            help="Unread messages"/>
@@ -163,25 +202,41 @@ Add alias management in your model::
 
 New record -> new alias
 
+.. image:: images/sales_team_1.png
+   :width: 45%
+   :align: left
+   :class: mt16
+
+.. image:: images/project_1.png
+   :width: 40%
+   :align: right
+   :class: mt16
+
 Aliases and Mail Gateway
 ------------------------
-
-Alias configuration
 
 * `alias_contact` -> privacy settings
 * `alias_force_thread_id` -> redirect emails to a document's thread or create a new document
 
+.. image:: images/project_2.png
+   :width: 70%
+   :align: center
+
 .. image:: images/group_1.png
    :width: 40%
    :align: center
+   :class: mt16
 
-.. image:: images/project_1.png
-   :width: 35%
-   :align: left
+Summary
+-------
 
-.. image:: images/sales_team_1.png
-   :width: 45%
-   :align: right
+* Customization through subtypes, tracking
+* Action counter
+* Mail gateway and aliases integration
+* -> inheritance (python)
+* -> light model decoration
+* -> a bit of subtypes / aliases (XML)
+* *Play with it !*
 
 Thanks for your attention
 =========================
