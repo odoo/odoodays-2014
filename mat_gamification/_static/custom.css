@@ -1,0 +1,14 @@
+@import url("odoo.css");
+
+.slides > article h1 {
+	font-size: 1.7em;
+}
+
+.slides > article:not(.level-1):after {
+    content: "Martin Trigaux (mat@odoo.com)";
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    font-family: 'Lato';
+    font-size: 0.9em;
+}
