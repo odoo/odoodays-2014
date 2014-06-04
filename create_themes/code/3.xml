@@ -1,16 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
- <data>
+[...]>
   <template id="website.homepage" name="Homepage" page="True">
    <t t-call="website.layout">
    <div id="wrap" class="oe_structure">
-    <section>
-     <div class="container">
-     [ ... All your code here ...]
-     </div>
-    </section>
+     <!--  Your HTML code here -->
     </div>
    </t>
-  </template>
- </data>
-</openerp>
+[...]

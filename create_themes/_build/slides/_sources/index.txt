@@ -1,5 +1,5 @@
-Create Themes for Websites
-==========================
+Create Themes for Website
+=========================
 
 By Fabien Pinckaers - Founder & CEO, Odoo
 
@@ -14,13 +14,15 @@ Topics
 	* Snippets
 	* Options
 	* Custom Css
-3. Example
+3. Examples
 
 Introduction
 ============
 
 Classical workflow
 ------------------
+
+Start a new project.
 
 .. image:: images/illus1.png   
    :width: 70%
@@ -29,7 +31,27 @@ Classical workflow
 Working with Odoo CMS
 ---------------------
 
+Start a new project.
+
 .. image:: images/illus2.png   
+   :width: 70%
+
+
+Classical workflow
+------------------
+
+Add new features or pages.
+
+.. image:: images/illus1_1.png   
+   :width: 70%
+   
+
+Working with Odoo CMS
+---------------------
+
+Add new features or pages.
+
+.. image:: images/illus2_1.png   
    :width: 70%
 
 Tutorial
@@ -54,50 +76,51 @@ Structure of a Theme
 	* static
   		* src
 			* js, css, font, xml, img
-	* data
+	* views
 		* my_theme.xml 
 		* snippets.xml
 		* options.xml
-		* [ ... ]
-	* views
 		* pages.xml (static pages)
-
+		* [...]
+    
 Simple HTML page
 ================
 
-Starting with a HTML page
--------------------------
+Starting with an HTML page
+--------------------------
 
 Let's start with the homepage.
 
-*data/pages.xml*
+*views/pages.xml*
 	
 .. literalinclude:: code/1.xml
    :language: xml
    :linenos:
 
-Starting with a html page
--------------------------
+Starting with an HTML page
+--------------------------
 
 Add the Odoo context :
 ( with Bootstrap front-end framework, Edition bar, Snippets, etc. )
 
-*data/pages.xml*
+*views/pages.xml*
 	
 .. literalinclude:: code/2.xml
    :language: xml
    :linenos:
 
-Starting with a html page
--------------------------
+Starting with an HTML page
+--------------------------
 
-It's possible to create all the page like this way.
+It's possible to create all the pages like this way.
 
-*data/pages.xml*
+*views/pages.xml*
 
 .. literalinclude:: code/3.xml
    :language: xml
    :linenos:
+
+Adding the class "oe_structure" allows you to use this cool feature: **Snippets**.
 
 
 Snippets
@@ -113,51 +136,40 @@ We call them "**Snippets**".
 
 - Block of html code usable everywhere.
 - Draggable in your page.
-- Can countains Javascript or/and Css logics.
+- Can contain Javascript or/and Css logics.
 
-| 
-.. image:: images/illus3.png   
-   :width: 100%
+.. slide:: 
+   :class: fullscreen
+   :inline-contents: True
+   
+   .. figure:: images/ii1.png
+      :class: fill
+
+
+.. slide:: 
+   :class: fullscreen
+   :inline-contents: True
+   
+   .. figure:: images/ii2.png
+      :class: fill
+
 
 A very Simple Snippet
 ----------------------
 
-Extend the snippet template and add a section.
+Structure of a snippet.
 
-*data/snippet.xml*
-
-.. literalinclude:: code/4.xml
-   :language: xml
-   :linenos:
-
-
-A very Simple Snippet
-----------------------
-
-Create a thumbnail for the snippet.
-
-*data/snippet.xml*
+*views/snippets.xml*
 
 .. literalinclude:: code/5.xml
    :language: xml
    :linenos:
 
 
-A very Simple Snippet
-----------------------
-
-The content.
-
-*data/snippet.xml*
-
-.. literalinclude:: code/6.xml
-   :language: xml
-   :linenos:
-
 Customize my Snippet
 --------------------
 
-We can customize this simple snippet with SASS/CSS.
+We can customize this simple snippet with Sass/Css.
 
 *static/src/css/my_theme.sass*
 
@@ -174,9 +186,9 @@ We can customize this simple snippet with SASS/CSS.
 Customize my Snippet
 --------------------
 
-To insert this new css we need to extend the theme template and replace the default bootstrap by our new css.
+To insert this new Css we need to extend the theme template and replace the default bootstrap by our new Css.
 
-*data/my_theme.xml*
+*views/my_theme.xml*
 
 .. literalinclude:: code/9.xml
    :language: xml
@@ -195,6 +207,35 @@ It's possible to add **javascript logic** when a snippet has been dropped or app
    :linenos:
 
 
+Snippet & Javascript
+--------------------
+
+Just inherits from "website.assets_frontend" template to enable it.
+
+*views/my_theme.xml*
+
+.. literalinclude:: code/10_a.xml
+   :language: xml
+   :linenos:
+
+Organize my snippets
+--------------------
+
+You can create a new snippet section or insert your snippet into an already present section.
+
+New section
+*views/snippet.xml*
+
+.. literalinclude:: code/4.xml
+   :language: xml
+   :linenos:
+
+Insert into "Structure" section.
+
+.. literalinclude:: code/4_a.xml
+   :language: xml
+   :linenos:
+
 Options
 =======
 
@@ -205,7 +246,7 @@ We can add options for every snippets or blocks.
 
 In our case, we add 2 options ( patterns background) for the snippet created before.
 
-*data/options.xml*
+*views/options.xml*
 
 .. literalinclude:: code/11.xml
    :language: xml
@@ -216,7 +257,7 @@ Add Options
 
 In fact, it adds a class-name to the data-selector.
 
-And now, simply create the css to have the desired result.
+And now, simply create the Css to have the desired result.
 
 *static/src/css/my_theme-options.sass*
 
@@ -225,7 +266,7 @@ And now, simply create the css to have the desired result.
    :linenos:
 
 
-Custom CSS
+Custom Css
 -----------
 
 We can override `Bootstrap variables <https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_variables.scss>`_ to create your theme.
@@ -253,18 +294,8 @@ Summary
 
 **... and so much things will come  :)**
 
-Quote
------
-
-  Think in terms of f#@_°% Snippets!!
-
-  -- nwi
-
-
 Example
 =======
-
-
 
 .. slide:: 
    :class: fullscreen

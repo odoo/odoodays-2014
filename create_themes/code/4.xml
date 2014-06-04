@@ -1,14 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
- <data>
+[...]
   <template id="snippets" inherit_id="website.snippets" name="My Simple Snippet">
    <xpath expr="//ul[@class='nav navbar-nav nav-tabs']" position="inside">
     <li>
-      <a href="#snippet_my_snippet" data-toggle="tab">
-      My Snippet
-      </a>
+      <a href="#snippet_my_snippet" data-toggle="tab">My Snippet</a>
     </li>
    </xpath>
   </template>
- </data>
-</openerp>
+[...]

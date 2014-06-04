@@ -1,7 +1,8 @@
 @font-face
   font-family: 'BebasNeue'
   src: url('/my_theme/static/src/font/BebasNeue Bold.ttf')
-  src: local("BebasNeue Book"), url('/my_theme/static/src/font/BebasNeue Bold.ttf') format("truetype")
+  src: local("BebasNeue Book"), 
+       url('/my_theme/static/src/font/BebasNeue Bold.ttf') format("truetype")
 
 .mt_simple_snippet
   h1

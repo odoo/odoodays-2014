@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Create Themes for Websites &mdash; Odoo Template 2014.06 documentation</title>
+    <title>Create Themes for Website &mdash; Odoo Template 2014.06 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/styles.css" type="text/css" />
@@ -45,8 +45,8 @@
    class='slides layout-regular'>
 
 
-  <article class="slide level-1" id="create-themes-for-websites">
-<h1>Create Themes for Websites</h1>
+  <article class="slide level-1" id="create-themes-for-website">
+<h1>Create Themes for Website</h1>
 <p>By Fabien Pinckaers - Founder &amp; CEO, Odoo</p>
 
 </article>
@@ -73,7 +73,7 @@
 </dd>
 </dl>
 </li>
-<li><p class="first">Example</p>
+<li><p class="first">Examples</p>
 </li>
 </ol>
 
@@ -84,12 +84,26 @@
 </article>
 <article class="slide level-2" id="classical-workflow">
 <h2>Classical workflow</h2>
+<p>Start a new project.</p>
 <a class="reference internal image-reference" href="_images/illus1.png"><img alt="_images/illus1.png" src="_images/illus1.png" style="width: 70%;" /></a>
 
 </article>
 <article class="slide level-2" id="working-with-odoo-cms">
 <h2>Working with Odoo CMS</h2>
+<p>Start a new project.</p>
 <a class="reference internal image-reference" href="_images/illus2.png"><img alt="_images/illus2.png" src="_images/illus2.png" style="width: 70%;" /></a>
+
+</article>
+<article class="slide level-2" id="id1">
+<h2>Classical workflow</h2>
+<p>Add new features or pages.</p>
+<a class="reference internal image-reference" href="_images/illus1_1.png"><img alt="_images/illus1_1.png" src="_images/illus1_1.png" style="width: 70%;" /></a>
+
+</article>
+<article class="slide level-2" id="id2">
+<h2>Working with Odoo CMS</h2>
+<p>Add new features or pages.</p>
+<a class="reference internal image-reference" href="_images/illus2_1.png"><img alt="_images/illus2_1.png" src="_images/illus2_1.png" style="width: 70%;" /></a>
 
 </article>
 <article class="slide level-1" id="tutorial">
@@ -131,20 +145,13 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>data</dt>
+<dt>views</dt>
 <dd><ul class="first last simple">
 <li>my_theme.xml</li>
 <li>snippets.xml</li>
 <li>options.xml</li>
-<li>[ ... ]</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>views</dt>
-<dd><ul class="first last simple">
 <li>pages.xml (static pages)</li>
+<li>[...]</li>
 </ul>
 </dd>
 </dl>
@@ -160,10 +167,10 @@
 <h1>Simple HTML page</h1>
 
 </article>
-<article class="slide level-2" id="starting-with-a-html-page">
-<h2>Starting with a HTML page</h2>
+<article class="slide level-2" id="starting-with-an-html-page">
+<h2>Starting with an HTML page</h2>
 <p>Let's start with the homepage.</p>
-<p><em>data/pages.xml</em></p>
+<p><em>views/pages.xml</em></p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -176,12 +183,7 @@
 10
 11
 12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;openerp&gt;</span>
- <span class="nt">&lt;data&gt;</span>
+13</pre></div></td><td class="code"><div class="highlight"><pre>[...]
   <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;website.homepage&quot;</span> <span class="na">name=</span><span class="s">&quot;Homepage&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;html&gt;</span>
     <span class="nt">&lt;head&gt;</span>
@@ -193,79 +195,55 @@
     <span class="nt">&lt;/body&gt;</span>
    <span class="nt">&lt;/html&gt;</span>
   <span class="nt">&lt;/template&gt;</span>
- <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+[...]
 </pre></div>
 </td></tr></table></div>
 
 </article>
-<article class="slide level-2" id="id1">
-<h2>Starting with a html page</h2>
+<article class="slide level-2" id="id3">
+<h2>Starting with an HTML page</h2>
 <p>Add the Odoo context :
 ( with Bootstrap front-end framework, Edition bar, Snippets, etc. )</p>
-<p><em>data/pages.xml</em></p>
-<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;openerp&gt;</span>
- <span class="nt">&lt;data&gt;</span>
+<p><em>views/pages.xml</em></p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre>[...]
   <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;website.homepage&quot;</span> <span class="na">name=</span><span class="s">&quot;Homepage&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h1&gt;</span> Hello, World!
-    <span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h1&gt;</span> Hello, World!<span class="nt">&lt;/h1&gt;</span>
    <span class="nt">&lt;/t&gt;</span>
   <span class="nt">&lt;/template&gt;</span>
- <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+[...]
 </pre></div>
 </td></tr></table></div>
 
 </article>
-<article class="slide level-2" id="id2">
-<h2>Starting with a html page</h2>
-<p>It's possible to create all the page like this way.</p>
-<p><em>data/pages.xml</em></p>
-<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;openerp&gt;</span>
- <span class="nt">&lt;data&gt;</span>
+<article class="slide level-2" id="id4">
+<h2>Starting with an HTML page</h2>
+<p>It's possible to create all the pages like this way.</p>
+<p><em>views/pages.xml</em></p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre>[...]&gt;
   <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;website.homepage&quot;</span> <span class="na">name=</span><span class="s">&quot;Homepage&quot;</span> <span class="na">page=</span><span class="s">&quot;True&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;t</span> <span class="na">t-call=</span><span class="s">&quot;website.layout&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wrap&quot;</span> <span class="na">class=</span><span class="s">&quot;oe_structure&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;section&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-     [ ... All your code here ...]
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/section&gt;</span>
+     <span class="c">&lt;!--  Your HTML code here --&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
    <span class="nt">&lt;/t&gt;</span>
-  <span class="nt">&lt;/template&gt;</span>
- <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+[...]
 </pre></div>
 </td></tr></table></div>
+<p>Adding the class &quot;oe_structure&quot; allows you to use this cool feature: <strong>Snippets</strong>.</p>
 
 </article>
 <article class="slide level-1" id="snippets">
@@ -280,90 +258,26 @@ we think about using &quot;Building Blocks&quot;.</p>
 <ul class="simple">
 <li>Block of html code usable everywhere.</li>
 <li>Draggable in your page.</li>
-<li>Can countains Javascript or/and Css logics.</li>
+<li>Can contain Javascript or/and Css logics.</li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
+
+</article>
+<article class="fullscreen slide level-2">
+<div class="figure">
+<img alt="_images/ii1.png" class="fill" src="_images/ii1.png" />
 </div>
-<a class="reference internal image-reference" href="_images/illus3.png"><img alt="_images/illus3.png" src="_images/illus3.png" style="width: 100%;" /></a>
+
+</article>
+<article class="fullscreen slide level-2">
+<div class="figure">
+<img alt="_images/ii2.png" class="fill" src="_images/ii2.png" />
+</div>
 
 </article>
 <article class="slide level-2" id="a-very-simple-snippet">
 <h2>A very Simple Snippet</h2>
-<p>Extend the snippet template and add a section.</p>
-<p><em>data/snippet.xml</em></p>
-<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;openerp&gt;</span>
- <span class="nt">&lt;data&gt;</span>
-  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;snippets&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippets&quot;</span> <span class="na">name=</span><span class="s">&quot;My Simple Snippet&quot;</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//ul[@class=&#39;nav navbar-nav nav-tabs&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#snippet_my_snippet&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>
-      My Snippet
-      <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-   <span class="nt">&lt;/xpath&gt;</span>
-  <span class="nt">&lt;/template&gt;</span>
- <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
-</pre></div>
-</td></tr></table></div>
-
-</article>
-<article class="slide level-2" id="id3">
-<h2>A very Simple Snippet</h2>
-<p>Create a thumbnail for the snippet.</p>
-<p><em>data/snippet.xml</em></p>
-<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre>  [...]
-   <span class="nt">&lt;/xpath&gt;</span>
-   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@class=&#39;tab-content&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;snippet_my_snippet&quot;</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade&quot;</span><span class="nt">&gt;</span>
-     <span class="c">&lt;!-- Title --&gt;</span>
-     <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail_img&quot;</span>
-             <span class="na">src=</span><span class="s">&quot;/my_theme/static/src/img/snippet/snippet_thumbs.png&quot;</span> <span class="nt">/&gt;</span>
-       <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail_title&quot;</span><span class="nt">&gt;</span>My Snippet<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/xpath&gt;</span>
-  [...]
-</pre></div>
-</td></tr></table></div>
-
-</article>
-<article class="slide level-2" id="id4">
-<h2>A very Simple Snippet</h2>
-<p>The content.</p>
-<p><em>data/snippet.xml</em></p>
+<p>Structure of a snippet.</p>
+<p><em>views/snippets.xml</em></p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -381,31 +295,39 @@ we think about using &quot;Building Blocks&quot;.</p>
 15
 16
 17
-18</pre></div></td><td class="code"><div class="highlight"><pre>  [...]
-   <span class="nt">&lt;/xpath&gt;</span>
-   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@class=&#39;tab-content&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;snippet_zen&quot;</span> <span class="na">class=</span><span class="s">&quot;tab-pane fade&quot;</span><span class="nt">&gt;</span>
-     <span class="c">&lt;!-- Title --&gt;</span>
-     <span class="nt">&lt;div&gt;</span>
-        [...]
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre>[...]
+  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;my_theme_snippets&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippets&quot;</span> <span class="na">name=</span><span class="s">&quot;My Theme snippets&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@id=&#39;snippet_structure&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+     <span class="c">&lt;!-- Thumbnail --&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail_img&quot;</span> 
+           <span class="na">src=</span><span class="s">&quot;/my_theme/static/src/img/snippet/snippet_thumbs.png&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_thumbnail_title&quot;</span><span class="nt">&gt;</span>My Snippet<span class="nt">&lt;/span&gt;</span>
      <span class="nt">&lt;/div&gt;</span>
+     <span class="c">&lt;!-- Snippet Body --&gt;</span>
      <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;oe_snippet_body mt_simple_snippet&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;text-center mb32 mt32&quot;</span><span class="nt">&gt;</span>This is a simple snippet<span class="nt">&lt;/h1&gt;</span>
-        <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;text-center mb32 mt32&quot;</span><span class="nt">&gt;</span>This is a simple snippet<span class="nt">&lt;/h1&gt;</span>
+       <span class="nt">&lt;hr</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
      <span class="nt">&lt;/section&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
    <span class="nt">&lt;/xpath&gt;</span>
-  [...]
+  <span class="nt">&lt;/template&gt;</span>
+[...]
 </pre></div>
 </td></tr></table></div>
 
 </article>
 <article class="slide level-2" id="customize-my-snippet">
 <h2>Customize my Snippet</h2>
-<p>We can customize this simple snippet with SASS/CSS.</p>
+<p>We can customize this simple snippet with Sass/Css.</p>
 <p><em>static/src/css/my_theme.sass</em></p>
 <div class="highlight-sass"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -421,18 +343,20 @@ we think about using &quot;Building Blocks&quot;.</p>
 </pre></div>
 </td></tr></table></div>
 <p><em>static/src/css/my_theme-snippet.sass</em></p>
-<div class="highlight-sass"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">@font-face</span>
+<div class="highlight-sass"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">@font-face</span>
   <span class="na">font-family</span><span class="o">:</span> <span class="s1">&#39;</span><span class="s2">BebasNeue&#39;</span>
   <span class="na">src</span><span class="o">:</span> <span class="sx">url(&#39;/my_theme/static/src/font/BebasNeue Bold.ttf&#39;)</span>
-  <span class="na">src</span><span class="o">:</span> <span class="nf">local</span><span class="p">(</span><span class="s2">&quot;BebasNeue Book&quot;</span><span class="p">)</span><span class="o">,</span> <span class="sx">url(&#39;/my_theme/static/src/font/BebasNeue Bold.ttf&#39;)</span> <span class="nf">format</span><span class="p">(</span><span class="s2">&quot;truetype&quot;</span><span class="p">)</span>
+  <span class="na">src</span><span class="o">:</span> <span class="nf">local</span><span class="p">(</span><span class="s2">&quot;BebasNeue Book&quot;</span><span class="p">)</span><span class="o">,</span> 
+       <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;</span><span class="s2">/my_theme/static/src/font/BebasNeue Bold.ttf&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&quot;truetype&quot;</span><span class="o">)</span>
 
 <span class="nc">.mt_simple_snippet</span>
   <span class="nt">h1</span>
@@ -444,27 +368,21 @@ we think about using &quot;Building Blocks&quot;.</p>
 </article>
 <article class="slide level-2" id="id5">
 <h2>Customize my Snippet</h2>
-<p>To insert this new css we need to extend the theme template and replace the default bootstrap by our new css.</p>
-<p><em>data/my_theme.xml</em></p>
-<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;openerp&gt;</span>
- <span class="nt">&lt;data&gt;</span>
+<p>To insert this new Css we need to extend the theme template and replace the default bootstrap by our new Css.</p>
+<p><em>views/my_theme.xml</em></p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre>[...]
   <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;theme&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.theme&quot;</span> <span class="na">name=</span><span class="s">&quot;My Theme Assets&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//link[@id=&#39;bootstrap_css&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;replace&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;/my_theme/static/src/css/my_theme.css&quot;</span> <span class="nt">/&gt;</span>
    <span class="nt">&lt;/xpath&gt;</span>
   <span class="nt">&lt;/template&gt;</span>
- <span class="nt">&lt;/data&gt;</span>
-<span class="nt">&lt;/openerp&gt;</span>
+[...]
 </pre></div>
 </td></tr></table></div>
 
@@ -486,20 +404,91 @@ we think about using &quot;Building Blocks&quot;.</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-  
   <span class="kd">var</span> <span class="nx">website</span> <span class="o">=</span> <span class="nx">openerp</span><span class="p">.</span><span class="nx">website</span><span class="p">;</span>
   <span class="nx">website</span><span class="p">.</span><span class="nx">openerp_website</span> <span class="o">=</span> <span class="p">{};</span>
-  
   <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">animationRegistry</span><span class="p">.</span><span class="nx">my_snippet</span> <span class="o">=</span> <span class="nx">website</span><span class="p">.</span><span class="nx">snippet</span><span class="p">.</span><span class="nx">Animation</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="nx">selector</span> <span class="o">:</span> <span class="s2">&quot;.mt_simple_snippet&quot;</span><span class="p">,</span>
-    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Some Javascript Logic Here&quot;</span><span class="p">);</span>
-    <span class="p">},</span>
-  <span class="p">});</span>
   
+    <span class="nx">selector</span> <span class="o">:</span> <span class="s2">&quot;.mt_simple_snippet&quot;</span><span class="p">,</span>
+    
+    <span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="kd">var</span> <span class="nx">h1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">h1_width</span> <span class="o">=</span> <span class="nx">h1</span><span class="p">.</span><span class="nx">width</span><span class="p">();</span>
+      <span class="nx">h1</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+      <span class="nx">h1</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span> <span class="p">{</span> <span class="nx">width</span><span class="o">:</span> <span class="nx">h1_width</span> <span class="p">},</span> <span class="mi">3000</span> <span class="p">);</span>
+    <span class="p">},</span>
+  
+  <span class="p">});</span>
 <span class="p">})();</span>
+</pre></div>
+</td></tr></table></div>
+
+</article>
+<article class="slide level-2" id="id6">
+<h2>Snippet &amp; Javascript</h2>
+<p>Just inherits from &quot;website.assets_frontend&quot; template to enable it.</p>
+<p><em>views/my_theme.xml</em></p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre>[...]
+  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;assets_frontend&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.assets_frontend&quot;</span> 
+            <span class="na">name=</span><span class="s">&quot;My Theme Front End Assets&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;.&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;/my_theme/static/src/js/snippet.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+   <span class="nt">&lt;/xpath&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+[...]
+</pre></div>
+</td></tr></table></div>
+
+</article>
+<article class="slide level-2" id="organize-my-snippets">
+<h2>Organize my snippets</h2>
+<p>You can create a new snippet section or insert your snippet into an already present section.</p>
+<p>New section
+<em>views/snippet.xml</em></p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre>[...]
+  <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;snippets&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippets&quot;</span> <span class="na">name=</span><span class="s">&quot;My Simple Snippet&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//ul[@class=&#39;nav navbar-nav nav-tabs&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#snippet_my_snippet&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;tab&quot;</span><span class="nt">&gt;</span>My Snippet<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+   <span class="nt">&lt;/xpath&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+[...]
+</pre></div>
+</td></tr></table></div>
+<p>Insert into &quot;Structure&quot; section.</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre> [...]
+ <span class="nt">&lt;template</span> <span class="na">id=</span><span class="s">&quot;my_theme_snippets&quot;</span> <span class="na">inherit_id=</span><span class="s">&quot;website.snippets&quot;</span> <span class="na">name=</span><span class="s">&quot;My Theme snippets&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;xpath</span> <span class="na">expr=</span><span class="s">&quot;//div[@id=&#39;snippet_structure&#39;]&quot;</span> <span class="na">position=</span><span class="s">&quot;inside&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span><span class="c">&lt;!-- Your snippet --&gt;</span><span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/xpath&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+  [...]
 </pre></div>
 </td></tr></table></div>
 
@@ -512,7 +501,7 @@ we think about using &quot;Building Blocks&quot;.</p>
 <h2>Add Options</h2>
 <p>We can add options for every snippets or blocks.</p>
 <p>In our case, we add 2 options ( patterns background) for the snippet created before.</p>
-<p><em>data/options.xml</em></p>
+<p><em>views/options.xml</em></p>
 <div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -550,10 +539,10 @@ we think about using &quot;Building Blocks&quot;.</p>
 </td></tr></table></div>
 
 </article>
-<article class="slide level-2" id="id6">
+<article class="slide level-2" id="id7">
 <h2>Add Options</h2>
 <p>In fact, it adds a class-name to the data-selector.</p>
-<p>And now, simply create the css to have the desired result.</p>
+<p>And now, simply create the Css to have the desired result.</p>
 <p><em>static/src/css/my_theme-options.sass</em></p>
 <div class="highlight-sass"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -587,7 +576,7 @@ we think about using &quot;Building Blocks&quot;.</p>
 
 </article>
 <article class="slide level-2" id="custom-css">
-<h2>Custom CSS</h2>
+<h2>Custom Css</h2>
 <p>We can override <a class="reference external" href="https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_variables.scss">Bootstrap variables</a> to create your theme.</p>
 <p><em>static/src/css/my_theme.sass</em></p>
 <div class="highlight-sass"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -623,7 +612,7 @@ we think about using &quot;Building Blocks&quot;.</p>
 <h1>Summary</h1>
 
 </article>
-<article class="slide level-2" id="id7">
+<article class="slide level-2" id="id8">
 <h2>Summary</h2>
 <ul class="simple">
 <li>Infinite customizations</li>
@@ -634,14 +623,6 @@ we think about using &quot;Building Blocks&quot;.</p>
 <li>Robust Odoo back-end behind</li>
 </ul>
 <p><strong>... and so much things will come  :)</strong></p>
-
-</article>
-<article class="slide level-2" id="quote">
-<h2>Quote</h2>
-<blockquote>
-<div><p>Think in terms of f#&#64;_°% Snippets!!</p>
-<p class="attribution">&mdash;nwi</p>
-</div></blockquote>
 
 </article>
 <article class="slide level-1" id="example">

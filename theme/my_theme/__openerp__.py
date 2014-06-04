@@ -4,7 +4,7 @@
     'summary': 'Customisations',
     'version': '1.0',
     'description': """
-Feuerwear Customisations
+Create Themes for website
 ======================================
         """,
     'author': 'fp@odoo.com',

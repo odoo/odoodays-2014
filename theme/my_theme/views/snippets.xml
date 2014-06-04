@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+  <template id="my_theme_snippets" inherit_id="website.snippets" name="My Theme snippets">
+   <xpath expr="//div[@id='snippet_structure']" position="inside">
+    <!-- My Simple Snippet -->
+    <div>
+     <!-- Thumbnail -->
+     <div class="oe_snippet_thumbnail">
+      <img class="oe_snippet_thumbnail_img" src="/my_theme/static/src/img/snippet/snippet_thumbs.png" />
+      <span class="oe_snippet_thumbnail_title">My Snippet</span>
+     </div>
+     <!-- Snippet Body -->
+     <section class="oe_snippet_body mt_simple_snippet">
+      <div class="container">
+       <hr />
+       <h1 class="text-center mb32 mt32">This is a simple snippet</h1>
+       <hr />
+      </div>
+     </section>
+    </div>
+   </xpath>
+  </template>
+ </data>
+</openerp>

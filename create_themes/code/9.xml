@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
- <data>
+[...]
   <template id="theme" inherit_id="website.theme" name="My Theme Assets">
    <xpath expr="//link[@id='bootstrap_css']" position="replace">
     <link rel="stylesheet" type="text/css" href="/my_theme/static/src/css/my_theme.css" />
    </xpath>
   </template>
- </data>
-</openerp>
+[...]
