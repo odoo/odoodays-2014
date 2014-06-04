@@ -34,11 +34,11 @@ Dynamic Widgets
 
 .. nextslide::
 
-.. image:: images/demo1.png   
+.. image:: images/demo1.png
    :align: right
    :width: 30%
 
-.. image:: images/demo2.png   
+.. image:: images/demo2.png
    :align: right
    :width: 90%
 
@@ -48,21 +48,25 @@ Running example: Contact Snippet
 * create leads from questions
 * drag 'n drop it anywhere usefull
 
-Outline
--------
+Demo
+====
 
-* Introduction
-* Body
-* Options
-* Dynamic
-* Routes
+Talk structure
+--------------
+
+Running example: Contact Snippet
+
+* body
+* addition in CMS editor
+* dynamic configuration: choosing the sales team
+* link with backend: linking the button to the lead creation
 
 Body: snippet content
 ---------------------
 
 .. image:: images/contact_body.png
    :align: right
-   :width: 50%
+   :width: 45%
 
 Body = `HTML`
 
@@ -80,8 +84,8 @@ Body = `HTML`
     <button type="submit">Contact Us</button>
   </div>
 
-Editor
-------
+Addition in Editor
+------------------
 
 Snippet addition: extend the editor QWeb template
 
@@ -101,58 +105,65 @@ Snippet addition: extend the editor QWeb template
 
 .. nextslide::
 
-A thumbnail, a body
+* thumbnail: icon in editor
 
 .. code-block:: xml
 
-  <div>
+  <xpath expr="//div[@id='snippet_feature']" position="inside">
     <div class="oe_snippet_thumbnail">
       <img class="oe_snippet_thumbnail_img" src="/images/icon.png"/>
       <span class="oe_snippet_thumbnail_title">Contact Snippet</span>
     </div>
-    <section class="oe_snippet_body js_contact">
-      <!-- snippet HTML content -->
-    </section>
-  </div>
+  </xpath>
 
-Editor: snippet options
------------------------
-
-* Placement
-* Customize menu
+* body of the snippet
 
 .. code-block:: xml
 
-  <template id="contact_snippet"
-            name="Contact Snippet"
-            inherit_id="website.snippets">
-    <div data-snippet-option-id='contact_snippet'
-          data-selector=".js_contact"
-          data-selector-siblings="p, h1, h2, h3, blockquote,
-                                  div, .well, .panel">
-      <li>
-        <a href="#" class="button js_contact_sales_team">
-          Change Sales Team
-        </a>
-      </li>
-    </div>
-  </template>
+  <xpath expr="//div[@id='snippet_feature']" position="inside">
+    <section class="oe_snippet_body js_contact">
+      <!-- snippet HTML content -->
+    </section>
+  </xpath>
 
-.. nextslide::
+Snippet options
+---------------
+
+* placement: `data-selector-...`
+* menu option: `li`, option menu entry
+
+.. code-block:: xml
+
+  <div data-snippet-option-id='contact_snippet'
+        data-selector=".js_contact"
+        data-selector-siblings="p, h1, h2, h3, blockquote,
+                                div, .well, .panel">
+    <li>
+      <a href="#" class="button js_contact_sales_team">
+        Change Sales Team
+      </a>
+    </li>
+  </div>
+
+Dynamic customize
+-----------------
+
+Customize menu
 
 .. image:: images/contact_custo_1.png
    :align: center
    :width: 40%
 
+To link with
+
 .. image:: images/contact_custo_2.png
    :align: center
    :width: 70%
-   :class: mt16
+   :class: mt8
 
-Dynamic configuration: Option
------------------------------
+.. nextslide::
 
-Add an `Option` to add dynamic configuration
+Add a `snippet.Option` to add dynamic configuration
 
 Example: `Discussion Group` choice, `Sales Team` choice, ...
 
@@ -170,12 +181,14 @@ Example: `Discussion Group` choice, `Sales Team` choice, ...
     }
   });
 
-Dynamic behavior: Animation
----------------------------
+Dynamic behavior
+----------------
+
+Bind `Contact Us` to the back-end
 
 .. code-block:: javascript
 
-  snippet.animationRegistry.contact_snippet = snippet.Animation.extend({
+  snippet.animationRegistry.contact = snippet.Animation.extend({
     start: function (editable_mode) {
       this.$('.js_contact_btn').on('click', function (event) {
         // perform verification
@@ -190,10 +203,10 @@ Dynamic behavior: Animation
     },
   });
 
-Dynamic behavior: routing
--------------------------
+Routing
+-------
 
-Define a new route in the controller: create a lead from submitted data
+Bind `crm/contact_short` to a method creating a lead from submitted data
 
 .. code-block:: python
 
@@ -210,8 +223,12 @@ Define a new route in the controller: create a lead from submitted data
     return request.registry['crm.lead'].create(cr, uid, lead_values,
                                                context)
 
-Summary
--------
+And we are done !
+-----------------
+
+.. image:: images/contact_body.png
+   :align: right
+   :width: 45%
 
 * Definition: an HTML body in a template
 * Placement: XML declaration
@@ -220,7 +237,7 @@ Summary
 * Link: controllers
 
 
-Thanks
-======
+Thanks for your attention
+=========================
 
-Any questions ? Feel free to contact chm@openerp.com
+Any questions ? tde@odoo.com / chm@odoo.com
