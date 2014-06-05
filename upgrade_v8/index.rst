@@ -418,12 +418,14 @@ Guidelines
 ----------
 
 Do the migration step-by-step:
-    * migrate field definitions
-        * rewrite compute methods
-    * migrate methods
-        * rely on interoperability
-    * rewrite onchange methods (incompatible API)
-        * beware of overriding!
+
+#. migrate field definitions
+    * rewrite compute methods
+#. migrate methods
+    * rely on interoperability
+    * use decorators, they are necessary
+#. rewrite onchange methods (incompatible API)
+    * beware of overridden methods!
 
 
 From V7 to V8: The New API
