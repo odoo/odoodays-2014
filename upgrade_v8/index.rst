@@ -313,7 +313,7 @@ Stored computed fields are much easier now::
     )
 
     @api.one
-    @depends('name', 'parent_id.name')
+    @api.depends('name', 'parent_id.name')
     def _compute_display_name(self):
         ...
 
