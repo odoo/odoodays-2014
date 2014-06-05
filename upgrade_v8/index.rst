@@ -136,7 +136,7 @@ Method decorators
 
 Decorators enable support of **both** old and new API::
 
-    from openerp import Model, api
+    from odoo import Model, api
 
     class stuff(Model):
 
@@ -157,7 +157,7 @@ This method definition is equivalent to::
 
 .. code::
 
-    from openerp import Model, api
+    from odoo import Model, api
 
     class stuff(Model):
 
@@ -179,7 +179,7 @@ This method definition is equivalent to::
 
 One-by-one or "autoloop" decorator::
 
-    from openerp import Model, api
+    from odoo import Model, api
 
     class stuff(Model):
 
@@ -195,7 +195,7 @@ When invoked, the method is applied on every record::
 
 Methods that return a recordset instead of ids::
 
-    from openerp import Model, api
+    from odoo import Model, api
 
     class stuff(Model):
 
@@ -261,7 +261,7 @@ Fields as descriptors
 
 Python descriptors provide getter/setter (like ``property``)::
 
-    from openerp import Model, fields
+    from odoo import Model, fields
 
     class res_partner(Model):
         _name = 'res.partner'
