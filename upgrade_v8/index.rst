@@ -1,35 +1,37 @@
-Technical Upgrade V8
-====================
+From V7 to V8: The New API
+==========================
 
 Raphael Collet (rco@odoo.com)
 
 
-Purpose
--------
+Goal
+----
 
-* Learn the new Python API and its concepts
-* Learn the compatibility hooks
-* Apply them to migrate existing modules
+Make the model API
+    * more object-oriented
+    * more Pythonic
+    * less cluttered
+
+From V7 to V8
+    * compatibility: V7 and V8 APIs are interoperable
 
 
-The Python API of Odoo V8
-=========================
+Agenda
+------
 
-
-The Python API
---------------
-
-* Programming with recordsets
-* Environment object
-* Methods and method decorators
-* Fields as Python descriptors
-* Computed fields
-* Onchange methods
-* Python constraints
+* Recordsets
+* Methods
+* Environment
+* Fields
+* Migrating Modules
 
 
 Recordsets
-----------
+==========
+
+
+Programming with Recordsets
+---------------------------
 
 A **recordset** is:
     * an ordered collection of records
@@ -39,14 +41,11 @@ A **recordset** is:
         * browse nulls.
     * an instance of the model's class
 
-.. note::
-    Explain the similarity with strings in Python.
-
 
 The recordset as a collection
 -----------------------------
 
-It implements sequence operations::
+It implements sequence and set operations::
 
     partners = env['res.partner'].search([])
 
@@ -112,16 +111,111 @@ Methods of the model's class can be invoked on recordsets::
 
     # calling convention: leave out cr, uid, ids, context
 
-    # search returns a recordset instead of a list of ids
-    roots = partners.search([('parent_id', '=', False)])
+    @api.multi
+    def write(self, values):
+        result = super(C, self).write(values)
 
-    # write on the ids corresponding to the records
-    roots.write({...})
+        # search returns a recordset instead of a list of ids
+        domain = [('id', 'in', self.ids), ('parent_id', '=', False)]
+        roots = self.search(domain)
 
-    # the list of record ids is accessible
-    print roots.ids
+        # modify all records in roots
+        roots.write({'modified': True})
+
+        return result
 
 The missing parameters are hidden inside the recordset.
+
+
+Methods
+=======
+
+
+Method decorators
+-----------------
+
+Decorators enable support of **both** old and new API::
+
+    from openerp import Model, api
+
+    class stuff(Model):
+
+        @api.model
+        def create(self, values):
+            # self is a recordset, but its content is unused
+            ...
+
+This method definition is equivalent to::
+
+    class stuff(Model):
+
+        def create(self, cr, uid, values, context=None):
+            # self is not a recordset
+            ...
+
+.. nextslide::
+
+.. code::
+
+    from openerp import Model, api
+
+    class stuff(Model):
+
+        @api.multi
+        def write(self, values):
+            # self is a recordset and its content is used
+            # update self.ids
+            ...
+
+This method definition is equivalent to::
+
+    class stuff(Model):
+
+        def multi(self, cr, uid, ids, values, context=None):
+            # self is not a recordset
+            ...
+
+.. nextslide::
+
+One-by-one or "autoloop" decorator::
+
+    from openerp import Model, api
+
+    class stuff(Model):
+
+        @api.one
+        def cancel(self):
+            self.state = 'cancel'
+
+When invoked, the method is applied on every record::
+
+    recs.cancel()                   # [rec.cancel() for rec in recs]
+
+.. nextslide::
+
+Methods that return a recordset instead of ids::
+
+    from openerp import Model, api
+
+    class stuff(Model):
+
+        @api.multi
+        @api.returns('res.partner')
+        def root_partner(self):
+            p = self.partner_id
+            while p.parent_id:
+                p = p.parent_id
+            return p
+
+When called with the old API, it returns ids::
+
+    roots = recs.root_partner()
+
+    root_ids = model.root_partner(cr, uid, ids, context=None)
+
+
+Environment: cr, uid, context
+=============================
 
 
 The environment object
@@ -139,7 +233,7 @@ Encapsulates cr, uid, context::
 
     recs.env.ref('base.group_user')     # resolve xml id
 
-    recs.env['res.partner']             # access to model
+    recs.env['res.partner']             # access to new-API model
 
 .. nextslide::
 
@@ -147,69 +241,19 @@ Switching environments::
 
     # rebrowse recs with different parameters
     env2 = recs.env(cr2, uid2, context2)
-    recs.with_env(env2)
+    recs2 = recs.with_env(env2)
 
     # special case: change/extend the context
-    recs.with_context(context2)
-    recs.with_context(lang='fr')        # kwargs extend current context
+    recs2 = recs.with_context(context2)
+    recs2 = recs.with_context(lang='fr')    # kwargs extend current context
 
     # special case: change the uid
-    recs.sudo(user)
-    recs.sudo()                         # uid = SUPERUSER_ID
+    recs2 = recs.sudo(user)
+    recs2 = recs.sudo()                     # uid = SUPERUSER_ID
 
 
-Method decorators
------------------
-
-In Odoo V8, methods are defined on recordsets.
-
-Decorators enable support of **both** old and new API::
-
-    from openerp import Model, api
-
-    class stuff(Model):
-
-        @api.model
-        def search(self, domain, offset=0, limit=None, order=None):
-            # self is a recordset, but its content is unused
-            ...
-
-        @api.multi
-        def write(self, values):
-            # self is a recordset, values are written on self.ids
-            ...
-
-.. nextslide::
-
-One-by-one or "autoloop" decorator::
-
-    from openerp import Model, api
-
-    class stuff(Model):
-
-        @api.one
-        def cancel(self):
-            self.state = 'cancel'
-
-    # the method is applied on every record
-    recs.cancel()                   # [rec.cancel() for rec in recs]
-
-.. nextslide::
-
-Methods that return recordsets::
-
-    from openerp import Model, api
-
-    class stuff(Model):
-
-        @api.returns('res.partner')
-        def root_partner(self):
-            p = self.partner_id
-            while p.parent_id:
-                p = p.parent_id
-            return p
-
-When called with the old API, it returns a list of record ids.
+Fields
+======
 
 
 Fields as descriptors
@@ -235,19 +279,22 @@ Regular fields with the name of the compute method::
         ...
 
         display_name = fields.Char(
-            string='Name', store=False, readonly=True,
-            compute='_display_name',
+            string='Name', compute='_compute_display_name',
         )
 
         @api.one
         @api.depends('name', 'parent_id.name')
-        def _display_name(self):
+        def _compute_display_name(self):
             names = [self.parent_id.name, self.name]
             self.display_name = ' / '.join(filter(None, names))
 
 .. nextslide::
 
 The compute method must assign field(s) on records::
+
+    untaxed = fields.Float(compute='_amounts')
+    taxes = fields.Float(compute='_amounts')
+    total = fields.Float(compute='_amounts')
 
     @api.multi
     @api.depends('lines.amount', 'lines.taxes')
@@ -257,9 +304,23 @@ The compute method must assign field(s) on records::
             order.taxes = sum(line.taxes for line in order.lines)
             order.total = order.untaxed + order.taxes
 
+.. nextslide::
+
+Stored computed fields are much easier now::
+
+    display_name = fields.Char(
+        string='Name', compute='_compute_display_name', store=True,
+    )
+
+    @api.one
+    @depends('name', 'parent_id.name')
+    def _compute_display_name(self):
+        ...
+
 Field dependencies (``@depends``) are used for
-    * cache invalidation and
-    * recomputation.
+    * cache invalidation,
+    * recomputation,
+    * onchange.
 
 
 Fields with inverse
@@ -307,7 +368,9 @@ On may also provide **inverse** and **search** methods::
 Onchange methods
 ----------------
 
-The new API is similar to compute methods::
+For computed fields: **nothing to do!**
+
+For other fields: API is similar to compute methods::
 
     @api.onchange('partner_id')
     def _onchange_partner(self):
@@ -318,6 +381,10 @@ The record ``self`` is a virtual record:
     * all form values are set on ``self``
     * assigned values are not written to database but returned to
       the client
+
+.. note::
+
+    Several onchange methods for a given field: all of them are executed.
 
 .. nextslide::
 
@@ -338,6 +405,28 @@ Similar API, with a specific decorator::
     @api.constrains('lines', 'max_lines')
     def _check_size(self):
         if len(self.lines) > self.max_lines:
-            raise Warning(_("Too many lines"))
+            raise Warning(_("Too many lines in %s") % self.name)
 
 The error message is provided by the exception.
+
+
+Migrating Modules
+=================
+
+
+Guidelines
+----------
+
+Do the migration step-by-step:
+    * migrate field definitions
+        * rewrite compute methods
+    * migrate methods
+        * rely on interoperability
+    * rewrite onchange methods (incompatible API)
+        * beware of overriding!
+
+
+From V7 to V8: The New API
+==========================
+
+Thanks!
