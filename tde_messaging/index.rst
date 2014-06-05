@@ -39,11 +39,18 @@ Transversal app
 Transversal features
 
 * OpenChatter
-* Comunication history
+* Communication history
 * Subscribe, Followers
 * Action counters
 * Mail gateway
 * Aliases
+
+.. note::
+
+   purpose of talk: give the keys to integrate messaging/openchatter in module; key code, not too many details
+
+Demo
+====
 
 OpenChatter / mail.thread
 -------------------------
@@ -82,7 +89,7 @@ What did it do ? new fields, linking messaging models
     'message_unread': ... # unread messages
   }
 
-  class MailMessage(Model):
+  MyClasss MailMessage(Model):
     ...
 
   class MailMail(Model):
@@ -156,6 +163,9 @@ Bind them to the model
     }
   }
 
+.. note::
+  back on project, show subtypes, change user_id, show automatic logging
+
 NeedAction
 ----------
 
@@ -187,6 +197,9 @@ Kanban
 .. image:: images/needaction_2.png
    :width: 35%
    :align: center
+
+.. note::
+  back on project, set messages as unread, show counter, filter on kanban
 
 Email aliases
 -------------
@@ -227,12 +240,17 @@ Aliases and Mail Gateway
    :align: center
    :class: mt16
 
+.. note::
+  back on project, show alias privacy, alias name, ... + say more complex configuration can be achieved in settings / using code, easy to customize because app is modular
+
 Summary
 -------
 
+* Modular approach: inheritance -> features
+* OpenChatter and Followers -> mail.thread
+* Needaction -> ir.needaction_mixin
+* Mail gateway and mail aliases -> mail.alias
 * Customization through subtypes, tracking
-* Action counter
-* Mail gateway and aliases integration
 * -> inheritance (python)
 * -> light model decoration
 * -> a bit of subtypes / aliases (XML)
