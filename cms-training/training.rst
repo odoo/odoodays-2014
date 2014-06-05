@@ -17,6 +17,8 @@ Trivial module
 
    $ ./oe scaffold Academy my-modules
 
+creates directory ``my-modules/academy``
+
 .. nextslide::
 
 .. code-block:: text
@@ -57,6 +59,17 @@ Trivial module
         'data': ['security/ir.model.access.csv'],
         'tests': [],
     }
+
+.. nextslide::
+
+.. code-block:: console
+
+   createdb academy
+   ./openerp-server --addons-path=addons,my-modules -d academy -i academy
+
+* launch browser
+* open http://localhost:8069
+* see "Hello, world!"
 
 .. nextslide::
 

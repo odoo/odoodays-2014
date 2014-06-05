@@ -153,24 +153,21 @@ Website support
 .. note::
 
    ``request.website``
-
      instance of the current ``Website`` object, equivalent to calling
      ``get_current_website``. No multiple website supported currently, but
      useful shortcut in case
-
    ``request.lang``
-
      language identifier from the URL or default language for the website,
      also set in request context
-
    ``request.redirect(url)``
-
      shortcut for language-aware ``werkzeug.util.redirect``
 
 
 Website support: multilang
 --------------------------
 
-.. todo explain multilang
+``multilang=False`` disables multilang for controller
 
-.. todo explain website translations
+.. note::
+
+   show multilang on demo
