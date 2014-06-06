@@ -149,6 +149,7 @@ Snippet addition: extend the editor QWeb template
 .. code-block:: xml
 
   <xpath expr="//div[@id='snippet_feature']" position="inside">
+    ...
     <div class="oe_snippet_thumbnail">
       <img class="oe_snippet_thumbnail_img" src="/images/icon.png"/>
       <span class="oe_snippet_thumbnail_title">Contact Snippet</span>
@@ -160,6 +161,7 @@ Snippet addition: extend the editor QWeb template
 .. code-block:: xml
 
   <xpath expr="//div[@id='snippet_feature']" position="inside">
+    ...
     <section class="oe_snippet_body js_contact">
       <!-- snippet HTML content -->
     </section>
