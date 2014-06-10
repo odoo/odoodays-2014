@@ -1,0 +1,14 @@
+.mt_simple_snippet
+  &.tweed
+    background-image: url(/my_theme/static/src/img/backgrounds/patterns/tweed2.png)
+    h1
+      color: rgb(255,255,255)
+    hr
+      border-top: 1px solid dashed rgba(255,255,255,.8)
+  &.sprinkles
+    background-image: url(/my_theme/static/src/img/backgrounds/patterns/sprinkles.png)
+    h1
+      color: rgb(120,120,120)
+      +text-shadow(0 0 5px rgba(0,0,0,.3))
+    hr
+      border-top: 1px solid solid rgba(0,0,0,.8)

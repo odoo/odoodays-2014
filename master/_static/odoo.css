@@ -72,9 +72,16 @@
 .slides > article.level-1:first-of-type,
 .slides > article.level-1:last-of-type {
     line-height: normal;
-
     background: linear-gradient(to bottom, #a24689, #a24689 60%, white 60%, white);
 }
+
+
+.slides > .big_title {
+	text-align: center;
+  font-size: 2em;
+}
+
+
 .slides > article.level-1 {
     background-color: #a24689;
 }
@@ -196,3 +203,8 @@ blockquote p.attribution {
     right: 0;
     opacity: 0.7;
 }
+
+pre {
+	  font-size: .5em !important;
+}
+

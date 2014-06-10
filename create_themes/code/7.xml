@@ -1,0 +1,6 @@
+// Pure compass imports
+@import "compass/css3"
+@import "bootstrap" 
+
+// Create CSS only for snippet
+@import "my_theme-snippet.sass" 

@@ -1,0 +1,7 @@
+[...]
+  <template id="website.homepage" name="Homepage" page="True">
+   <t t-call="website.layout">
+    <h1> Hello, World!</h1>
+   </t>
+  </template>
+[...]

@@ -1,0 +1,8 @@
+[...]>
+  <template id="website.homepage" name="Homepage" page="True">
+   <t t-call="website.layout">
+   <div id="wrap" class="oe_structure">
+     <!--  Your HTML code here -->
+    </div>
+   </t>
+[...]
