@@ -65,9 +65,10 @@ A Theme?
 | 
 | 
 | 
-.. centered:: A Theme is an Odoo's MODULE
-(Without Python Logic)
 
+.. centered:: A Theme is an Odoo's MODULE
+
+(Without Python Logic)
 
 Structure of a Theme
 --------------------

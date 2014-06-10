@@ -192,7 +192,8 @@ WARNING: old API... Do not try this at home!!!
                     string="Total Invoiced", type='float', store=True)
             }
 
-.. code::
+.. note::
+
     second warning: untested code!! this is just a proof of concept
     to illustrate the point
 

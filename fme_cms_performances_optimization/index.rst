@@ -78,8 +78,8 @@ Chrome      6
 =========== =====
 
 .. rst-class:: build
-Lack of @aync or @defer makes javascript loading synchronous.
 
+Lack of @aync or @defer makes javascript loading synchronous.
 
 .. note::
 
@@ -194,6 +194,7 @@ plan the same operations in 5 SQL queries
         - limit by maximum requests
 
 .. rst-class:: build
+
 3.  One gevented process for the chat module and async notifications
 4.  Stateless model (Odoo servers can be clustered)
 
