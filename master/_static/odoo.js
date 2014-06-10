@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keypress', function (e) {
-        console.log(e);
         if (e.target !== document && e.target !== document.body) { return; }
         if (e.metaKey || e.ctrlKey) { return; }
-        if (e.keyCode !== 102) { return; }
-        console.log('fullscreenify')
+        if (e.charCode !== 102 && e.keyCode !== 102) { return; }
         if (!isFullscreen()) {
             requestFullscreen();
         } else {
