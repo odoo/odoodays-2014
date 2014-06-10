@@ -208,3 +208,10 @@ pre {
 	  font-size: .5em !important;
 }
 
+@media print {
+    .slides > article {
+        position: relative !important;
+        left: 0;
+        top: 0;
+    }
+}
